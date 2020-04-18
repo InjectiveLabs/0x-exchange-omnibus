@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "ganache-cli": "^6.9.1",
     "truffle": "^5.1.22"
   }
