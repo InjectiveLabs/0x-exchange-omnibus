@@ -1,0 +1,17 @@
+{
+  "name": "0x-exchange-omnibus",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "get-snapshot": "wget http://ganache-snapshots.0x.org.s3-website.us-east-2.amazonaws.com/0x_ganache_snapshot-latest.zip && unzip 0x_ganache_snapshot-latest.zip && rm 0x_ganache_snapshot-latest.zip",
+    "ganache": "ganache-cli --deterministic --networkId 50 -p 8545 --db ./0x_ganache_snapshot -m 'concert load couple harbor equip island argue ramp clarify fence smart topic'",
+    "test": "truffle test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ganache-cli": "^6.9.1",
+    "truffle": "^5.1.22"
+  }
+}
