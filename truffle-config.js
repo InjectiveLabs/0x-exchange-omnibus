@@ -1,4 +1,5 @@
 require('dotenv').config();
+const HDWalletProvider = require("truffle-hdwallet-provider");
 
 module.exports = {
     /**
@@ -22,7 +23,13 @@ module.exports = {
             host: "127.0.0.1",     // Localhost (default: none)
             port: 8545,            // Standard Ethereum port (default: none)
             network_id: 50        // Any network (default: none)
-        }
+        },
+        injective: {
+          provider: () => new HDWalletProvider(process.env.PRIVATE_KEY, "https://evm-us.injective.dev"),
+          network_id: 15001,
+          gas: 20000000,
+          gasPrice: 0
+        },
     },
 
     // Set default mocha options here, use special reporters etc.
