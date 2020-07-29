@@ -1,3 +1,5 @@
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+
 require('dotenv').config();
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
@@ -25,11 +27,17 @@ module.exports = {
             network_id: 50        // Any network (default: none)
         },
         injective: {
-          provider: () => new HDWalletProvider(process.env.PRIVATE_KEY, "https://evm-us.injective.dev"),
+          provider: function() {
+            return new HDWalletProvider(
+              process.env.MNEMONIC,
+              `https://evm-us.injective.dev`
+            )
+          },
           network_id: 15001,
-          gas: 20000000,
-          gasPrice: 0
-        },
+          skipDryRun: true,
+          gasPrice: 1000000000, // 1 gwei
+          gas: 8000000
+        }
     },
 
     // Set default mocha options here, use special reporters etc.

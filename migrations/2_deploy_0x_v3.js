@@ -19,10 +19,10 @@ const DevUtils = artifacts.require('DevUtils');
 
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000'
 
-const CHAIN_ID = 1337
+const CHAIN_ID = 15001
 
 module.exports = async (deployer, network, accounts) => {
-    if (network != "development") {
+    if (network != "injectomatic") {
         return;
     }
 
