@@ -22,7 +22,7 @@ const NULL_ADDRESS = '0x0000000000000000000000000000000000000000'
 const CHAIN_ID = 15001
 
 module.exports = async (deployer, network, accounts) => {
-    if (network != "injectomatic") {
+    if (network != "injective") {
         return;
     }
 
@@ -81,14 +81,6 @@ module.exports = async (deployer, network, accounts) => {
     await deployer.deploy(LibOrderTransferSimulation, txDefaults);
     await deployer.deploy(LibTransactionDecoder, txDefaults);
 
-    deployer.link(LibAssetData, DevUtils);
-    deployer.link(LibDydxBalance, DevUtils);
-    deployer.link(LibOrderTransferSimulation, DevUtils);
-    deployer.link(LibTransactionDecoder, DevUtils);
-
-    await deployer.deploy(DevUtils, Exchange.address, NULL_ADDRESS, NULL_ADDRESS, txDefaults);
-    const devUtils = new DevUtils.web3.eth.Contract(DevUtils.abi, DevUtils.address);
-
     console.log('Configuring ERC20Proxy...');
     await erc20Proxy.methods.addAuthorizedAddress(Exchange.address).send(txDefaults);
     await erc20Proxy.methods.addAuthorizedAddress(MultiAssetProxy.address).send(txDefaults);
@@ -140,6 +132,14 @@ module.exports = async (deployer, network, accounts) => {
     await stakingProxy.methods.addAuthorizedAddress(txDefaults.from).send(txDefaults);
     await staking.methods.addExchangeAddress(Exchange.address).send(txDefaults);
     console.log('StakingProxy configured!');
+
+    deployer.link(LibAssetData, DevUtils);
+    deployer.link(LibDydxBalance, DevUtils);
+    deployer.link(LibOrderTransferSimulation, DevUtils);
+    deployer.link(LibTransactionDecoder, DevUtils);
+
+    await deployer.deploy(DevUtils, Exchange.address, NULL_ADDRESS, NULL_ADDRESS, txDefaults);
+    const devUtils = new DevUtils.web3.eth.Contract(DevUtils.abi, DevUtils.address);
 
     const contractAddresses = {
         erc20Proxy: ERC20Proxy.address,
