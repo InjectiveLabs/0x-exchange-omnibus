@@ -11,21 +11,13 @@ const StaticCallProxy = artifacts.require('StaticCallProxy');
 const MultiAssetProxy = artifacts.require('MultiAssetProxy');
 const CoordinatorRegistry = artifacts.require('CoordinatorRegistry');
 const Exchange = artifacts.require('Exchange');
-const LibAssetData = artifacts.require('LibAssetData');
-const LibDydxBalance = artifacts.require('LibDydxBalance');
-const LibOrderTransferSimulation = artifacts.require('LibOrderTransferSimulation');
-const LibTransactionDecoder = artifacts.require('LibTransactionDecoder');
 const DevUtils = artifacts.require('DevUtils');
 
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000'
 
-const CHAIN_ID = 15001
+const CHAIN_ID = 1337
 
 module.exports = async (deployer, network, accounts) => {
-    if (network != "injective") {
-        return;
-    }
-
     try {
         if (DevUtils.address) {
             // Do not run if initial deployment has been done already
@@ -74,12 +66,6 @@ module.exports = async (deployer, network, accounts) => {
 
     await deployer.deploy(Exchange, CHAIN_ID, txDefaults);
     const exchange = new Exchange.web3.eth.Contract(Exchange.abi, Exchange.address);
-
-    await deployer.deploy(LibAssetData, txDefaults);
-    deployer.link(LibAssetData, LibDydxBalance);
-    await deployer.deploy(LibDydxBalance, txDefaults);
-    await deployer.deploy(LibOrderTransferSimulation, txDefaults);
-    await deployer.deploy(LibTransactionDecoder, txDefaults);
 
     console.log('Configuring ERC20Proxy...');
     await erc20Proxy.methods.addAuthorizedAddress(Exchange.address).send(txDefaults);
@@ -133,14 +119,6 @@ module.exports = async (deployer, network, accounts) => {
     await staking.methods.addExchangeAddress(Exchange.address).send(txDefaults);
     console.log('StakingProxy configured!');
 
-    deployer.link(LibAssetData, DevUtils);
-    deployer.link(LibDydxBalance, DevUtils);
-    deployer.link(LibOrderTransferSimulation, DevUtils);
-    deployer.link(LibTransactionDecoder, DevUtils);
-
-    await deployer.deploy(DevUtils, Exchange.address, NULL_ADDRESS, NULL_ADDRESS, txDefaults);
-    const devUtils = new DevUtils.web3.eth.Contract(DevUtils.abi, DevUtils.address);
-
     const contractAddresses = {
         erc20Proxy: ERC20Proxy.address,
         erc721Proxy: ERC721Proxy.address,
@@ -154,7 +132,6 @@ module.exports = async (deployer, network, accounts) => {
         coordinator: NULL_ADDRESS,
         multiAssetProxy: MultiAssetProxy.address,
         staticCallProxy: StaticCallProxy.address,
-        devUtils: DevUtils.address,
         zrxVault: ZrxVault.address,
         staking: Staking.address,
         stakingProxy: NULL_ADDRESS
