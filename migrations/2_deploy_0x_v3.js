@@ -15,7 +15,7 @@ const DevUtils = artifacts.require('DevUtils');
 
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000'
 
-const CHAIN_ID = 1337
+const CHAIN_ID = 888
 
 module.exports = async (deployer, network, accounts) => {
     try {

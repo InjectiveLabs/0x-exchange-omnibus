@@ -21,9 +21,16 @@ module.exports = {
         // options below to some value.
         //
         development: {
-            host: "127.0.0.1",     // Localhost (default: none)
-            port: 8545,            // Standard Ethereum port (default: none)
-            network_id: 50        // Any network (default: none)
+            provider: function() {
+              return new HDWalletProvider(
+                process.env.MNEMONIC,
+                `http://127.0.0.1:1317`
+              )
+            },
+            network_id: 888,
+            skipDryRun: true,
+            gasPrice: 0,
+            gas: 8000000
         },
         injective: {
           provider: function() {
@@ -36,7 +43,7 @@ module.exports = {
           skipDryRun: true,
           gasPrice: 1000000000, // 1 gwei
           gas: 8000000
-        }
+        },
     },
 
     // Set default mocha options here, use special reporters etc.
