@@ -30,7 +30,7 @@ module.exports = {
             network_id: 888,
             skipDryRun: true,
             gasPrice: 0,
-            gas: 8000000
+            gas: 80000000
         },
        injective: {
             provider: function() {
@@ -42,7 +42,7 @@ module.exports = {
             network_id: 888,
             skipDryRun: true,
             gasPrice: 0,
-            gas: 8000000
+            gas: 80000000
         },
     },
 
