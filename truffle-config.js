@@ -32,17 +32,17 @@ module.exports = {
             gasPrice: 0,
             gas: 8000000
         },
-        injective: {
-          provider: function() {
-            return new HDWalletProvider(
-              process.env.MNEMONIC,
-              `https://evm-us.injective.dev`
-            )
-          },
-          network_id: 15001,
-          skipDryRun: true,
-          gasPrice: 1000000000, // 1 gwei
-          gas: 8000000
+       injective: {
+            provider: function() {
+              return new HDWalletProvider(
+                process.env.MNEMONIC,
+                `http://127.0.0.1:1317`
+              )
+            },
+            network_id: 888,
+            skipDryRun: true,
+            gasPrice: 0,
+            gas: 8000000
         },
     },
 
