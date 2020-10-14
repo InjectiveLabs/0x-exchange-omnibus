@@ -35,7 +35,7 @@ module.exports = {
        injective: {
             provider: function() {
               return new HDWalletProvider(
-                process.env.MNEMONIC,
+                process.env.DEPLOYER_PRIVATE_KEY,
                 `http://127.0.0.1:1317`
               )
             },
