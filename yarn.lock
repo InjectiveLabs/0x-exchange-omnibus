@@ -179,12 +179,12 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@truffle/hdwallet-provider@^1.0.35":
-  version "1.0.40"
-  resolved "https://registry.yarnpkg.com/@truffle/hdwallet-provider/-/hdwallet-provider-1.0.40.tgz#22452010fc9dd6d50bcda29f0b8d019c19ed761c"
-  integrity sha512-6SCzccdiFnlTREeVrGgd+ViVZCLFzrOYEIF/4qyzH2L6ilq/Taps5txKsd+/j8Jzz67ZRAB6utKxwBDv2wfW3A==
+"@truffle/hdwallet-provider@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@truffle/hdwallet-provider/-/hdwallet-provider-1.1.0.tgz#caca30225ee18c69fdd6403b4de23ca316796922"
+  integrity sha512-hblrGs0w/S8Ij7BrmUju6GEK35NWQs2Hxc6SMBrz4chlwd9vcBzMWCGoCtYwYOi2d6o9jOv17+bLk9KNlTZR8g==
   dependencies:
-    "@trufflesuite/web3-provider-engine" "15.0.13-0"
+    "@trufflesuite/web3-provider-engine" "15.0.13-1"
     "@types/web3" "^1.0.20"
     any-promise "^1.3.0"
     bindings "^1.5.0"
@@ -206,6 +206,16 @@
     json-rpc-engine "^5.1.3"
     lodash.flatmap "^4.5.0"
     safe-event-emitter "^1.0.1"
+
+"@trufflesuite/eth-json-rpc-infura@^4.0.3-0":
+  version "4.0.3-0"
+  resolved "https://registry.yarnpkg.com/@trufflesuite/eth-json-rpc-infura/-/eth-json-rpc-infura-4.0.3-0.tgz#6d22122937cf60ec9d21a02351c101fdc608c4fe"
+  integrity sha512-xaUanOmo0YLqRsL0SfXpFienhdw5bpQ1WEXxMTRi57az4lwpZBv4tFUDvcerdwJrxX9wQqNmgUgd1BrR01dumw==
+  dependencies:
+    "@trufflesuite/eth-json-rpc-middleware" "^4.4.2-1"
+    cross-fetch "^2.1.1"
+    eth-json-rpc-errors "^1.0.1"
+    json-rpc-engine "^5.1.3"
 
 "@trufflesuite/eth-json-rpc-middleware@^4.4.2-0", "@trufflesuite/eth-json-rpc-middleware@^4.4.2-1":
   version "4.4.2-1"
@@ -235,12 +245,13 @@
     ethereumjs-abi "^0.6.8"
     ethereumjs-util "^5.1.1"
 
-"@trufflesuite/web3-provider-engine@15.0.13-0":
-  version "15.0.13-0"
-  resolved "https://registry.yarnpkg.com/@trufflesuite/web3-provider-engine/-/web3-provider-engine-15.0.13-0.tgz#94270e3d65fec61abaff68682519a0e674aae3ad"
-  integrity sha512-bgGE2Sg56XMu0dhJl7UMiFfEFSvxW47G0RCQ3schV2kUilLKeqvGHE9z1ElVi8W30F/pF7VDbp5DkprvFC9+HQ==
+"@trufflesuite/web3-provider-engine@15.0.13-1":
+  version "15.0.13-1"
+  resolved "https://registry.yarnpkg.com/@trufflesuite/web3-provider-engine/-/web3-provider-engine-15.0.13-1.tgz#f6a7f7131a2fdc4ab53976318ed13ce83e8e4bcb"
+  integrity sha512-6u3x/iIN5fyj8pib5QTUDmIOUiwAGhaqdSTXdqCu6v9zo2BEwdCqgEJd1uXDh3DBmPRDfiZ/ge8oUPy7LerpHg==
   dependencies:
     "@trufflesuite/eth-json-rpc-filters" "^4.1.2-1"
+    "@trufflesuite/eth-json-rpc-infura" "^4.0.3-0"
     "@trufflesuite/eth-json-rpc-middleware" "^4.4.2-1"
     "@trufflesuite/eth-sig-util" "^1.4.2"
     async "^2.5.0"
@@ -249,7 +260,6 @@
     cross-fetch "^2.1.0"
     eth-block-tracker "^4.4.2"
     eth-json-rpc-errors "^2.0.2"
-    eth-json-rpc-infura "^4.0.1"
     ethereumjs-block "^1.2.2"
     ethereumjs-tx "^1.2.0"
     ethereumjs-util "^5.1.5"
@@ -1300,36 +1310,6 @@ eth-json-rpc-errors@^2.0.2:
   dependencies:
     fast-safe-stringify "^2.0.6"
 
-eth-json-rpc-infura@^4.0.1:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/eth-json-rpc-infura/-/eth-json-rpc-infura-4.0.2.tgz#8af1a1a2e9a0a82aaa302bbc96fb1a4c15d69b83"
-  integrity sha512-dvgOrci9lZqpjpp0hoC3Zfedhg3aIpLFVDH0TdlKxRlkhR75hTrKTwxghDrQwE0bn3eKrC8RsN1m/JdnIWltpw==
-  dependencies:
-    cross-fetch "^2.1.1"
-    eth-json-rpc-errors "^1.0.1"
-    eth-json-rpc-middleware "^4.1.4"
-    json-rpc-engine "^5.1.3"
-
-eth-json-rpc-middleware@^4.1.4:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/eth-json-rpc-middleware/-/eth-json-rpc-middleware-4.4.1.tgz#07d3dd0724c24a8d31e4a172ee96271da71b4228"
-  integrity sha512-yoSuRgEYYGFdVeZg3poWOwAlRI+MoBIltmOB86MtpoZjvLbou9EB/qWMOWSmH2ryCWLW97VYY6NWsmWm3OAA7A==
-  dependencies:
-    btoa "^1.2.1"
-    clone "^2.1.1"
-    eth-json-rpc-errors "^1.0.1"
-    eth-query "^2.1.2"
-    eth-sig-util "^1.4.2"
-    ethereumjs-block "^1.6.0"
-    ethereumjs-tx "^1.3.7"
-    ethereumjs-util "^5.1.2"
-    ethereumjs-vm "^2.6.0"
-    fetch-ponyfill "^4.0.0"
-    json-rpc-engine "^5.1.3"
-    json-stable-stringify "^1.0.1"
-    pify "^3.0.0"
-    safe-event-emitter "^1.0.1"
-
 eth-lib@0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/eth-lib/-/eth-lib-0.2.8.tgz#b194058bef4b220ad12ea497431d6cb6aa0623c8"
@@ -1365,14 +1345,6 @@ eth-rpc-errors@^2.1.1:
   integrity sha512-MY3zAa5ZF8hvgQu1HOF9agaK5GgigBRGpTJ8H0oVlE0NqMu13CW6syyjLXdeIDCGQTbUeHliU1z9dVmvMKx1Tg==
   dependencies:
     fast-safe-stringify "^2.0.6"
-
-eth-sig-util@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/eth-sig-util/-/eth-sig-util-1.4.2.tgz#8d958202c7edbaae839707fba6f09ff327606210"
-  integrity sha1-jZWCAsftuq6Dlwf7pvCf8ydgYhA=
-  dependencies:
-    ethereumjs-abi "git+https://github.com/ethereumjs/ethereumjs-abi.git"
-    ethereumjs-util "^5.1.1"
 
 ethereum-bloom-filters@^1.0.6:
   version "1.0.7"
@@ -1421,13 +1393,6 @@ ethereumjs-abi@^0.6.8:
   version "0.6.8"
   resolved "https://registry.yarnpkg.com/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz#71bc152db099f70e62f108b7cdfca1b362c6fcae"
   integrity sha512-Tx0r/iXI6r+lRsdvkFDlut0N08jWMnKRZ6Gkq+Nmw75lZe4e6o3EkSnkaBP5NF6+m5PTGAr9JP43N3LyeoglsA==
-  dependencies:
-    bn.js "^4.11.8"
-    ethereumjs-util "^6.0.0"
-
-"ethereumjs-abi@git+https://github.com/ethereumjs/ethereumjs-abi.git":
-  version "0.6.8"
-  resolved "git+https://github.com/ethereumjs/ethereumjs-abi.git#1cfbb13862f90f0b391d8a699544d5fe4dfb8c7b"
   dependencies:
     bn.js "^4.11.8"
     ethereumjs-util "^6.0.0"
@@ -3684,10 +3649,10 @@ tough-cookie@~2.5.0:
     psl "^1.1.28"
     punycode "^2.1.1"
 
-truffle@^5.1.44:
-  version "5.1.44"
-  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.1.44.tgz#11a91b1befc68b85d38baf2cb301d566d18a3780"
-  integrity sha512-8NIFw8jJFbi2vYHWGeflFHZByIDtx56r+BDl2CkPjpGEb9arEFDaCmjy70UQe4PBIX+olsl3opSVqpUb16b6tQ==
+truffle@^5.1.48:
+  version "5.1.48"
+  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.1.48.tgz#43c78cb1fa8f51496a66de7bddfd6726ad132676"
+  integrity sha512-Z8485qH5Db8P05dVy7SHQHcaa+hXAekvPcVkkv8zONsVBqOmS3q48eajukdeKNbLlfPWb3m7TYdPzrGFBDcFiQ==
   dependencies:
     app-module-path "^2.2.0"
     mocha "8.1.2"
