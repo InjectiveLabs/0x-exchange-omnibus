@@ -18,15 +18,6 @@ const NULL_ADDRESS = '0x0000000000000000000000000000000000000000'
 const CHAIN_ID = 888
 
 module.exports = async (deployer, network, accounts) => {
-    try {
-        if (DevUtils.address) {
-            // Do not run if initial deployment has been done already
-            return;
-        }
-    } catch {
-        console.log("No previous 0x deployment detected, migrating")
-    }
-
     const txDefaults = { from: accounts[0], overwrite: false }
 
     await deployer.deploy(ERC20Proxy, txDefaults);

@@ -2,18 +2,16 @@
   "name": "0x-exchange-omnibus",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "get-snapshot": "wget http://ganache-snapshots.0x.org.s3-website.us-east-2.amazonaws.com/0x_ganache_snapshot-latest.zip && unzip 0x_ganache_snapshot-latest.zip && rm 0x_ganache_snapshot-latest.zip",
-    "ganache": "ganache-cli --deterministic --networkId 50 -p 8545 --db ./0x_ganache_snapshot -m 'concert load couple harbor equip island argue ramp clarify fence smart topic'",
-    "test": "truffle test"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@truffle/hdwallet-provider": "^1.1.0",
-    "dotenv": "^8.2.0",
-    "ganache-cli": "^6.9.1",
-    "truffle": "^5.1.48"
+    "truffle": "^5.1.42",
+    "web3": "^1.2.11"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@truffle/hdwallet-provider": "^1.1.1",
+    "dotenv": "^8.2.0"
   }
 }
