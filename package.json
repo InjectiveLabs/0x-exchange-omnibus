@@ -6,6 +6,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0",
     "truffle": "^5.1.42",
     "web3": "^1.2.11"
   },
@@ -13,5 +15,8 @@
     "@babel/core": "^7.0.0-0",
     "@truffle/hdwallet-provider": "^1.1.1",
     "dotenv": "^8.2.0"
+  },
+  "scripts": {
+    "postinstall": "patch-package"
   }
 }
