@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0"
   },
   "scripts": {
+    "abigen": "sh ./abigen.sh",
     "postinstall": "patch-package"
   }
 }
