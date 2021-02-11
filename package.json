@@ -8,7 +8,7 @@
   "devDependencies": {
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
-    "truffle": "^5.1.42",
+    "truffle": "^5.1.51",
     "web3": "^1.2.11"
   },
   "dependencies": {
